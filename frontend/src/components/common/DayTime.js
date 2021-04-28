@@ -11,7 +11,7 @@ const getDaytime = (hour) => {
     }
 };
 
-const Daytime = (p) => {
+const Daytime = () => {
     const daytime = getDaytime(new Date().getHours());
 
     return (

@@ -8,9 +8,13 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
-        font-size: 62.5%;
+        /* font-size: 62.5%; */
         background-color: #ffffff;        
         color: #1D2A73;
-    }`
+    }
+
+    html {
+        font-size: 62.5%;
+    }` 
 
 export {GlobalStyle};
