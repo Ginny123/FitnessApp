@@ -1,0 +1,397 @@
+brigitte@DESKTOP-AMD1J95:~$ cd /home/brigitte/FitnessApp/
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+On branch dashboard
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   frontend/src/components/common/DayTime.js
+        modified:   frontend/src/components/common/GlobalStyles.js
+        modified:   frontend/src/components/themes/fonts.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git add frontend/src/components/themes/fonts.js
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git commit -m 'line-height change'
+[dashboard b8d56e6] line-height change
+ 1 file changed, 15 insertions(+), 10 deletions(-)
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git branch
+* dashboard
+  main
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git push origin dashboard
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 685 bytes | 685.00 KiB/s, done.
+Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To github.com:Ginny123/FitnessApp.git
+   1483460..b8d56e6  dashboard -> dashboard
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout main
+error: Your local changes to the following files would be overwritten by checkout:
+        frontend/src/components/common/DayTime.js
+        frontend/src/components/common/GlobalStyles.js
+Please commit your changes or stash them before you switch branches.
+Aborting
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout dashboard
+M       frontend/src/components/common/DayTime.js
+M       frontend/src/components/common/GlobalStyles.js
+Already on 'dashboard'
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git add .
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git commit -m 'change dashboard Prop'
+[dashboard c9d11bc] change dashboard Prop
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+On branch dashboard
+nothing to commit, working tree clean
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git push
+fatal: The current branch dashboard has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin dashboard
+
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git push --set-upstream origin dashboard
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 718 bytes | 718.00 KiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To github.com:Ginny123/FitnessApp.git
+   b8d56e6..c9d11bc  dashboard -> dashboard
+Branch 'dashboard' set up to track remote branch 'dashboard' from 'origin'.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout -b test
+Switched to a new branch 'test'
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+On branch test
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        frontend/src/components/
+
+nothing added to commit but untracked files present (use "git add" to track)
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git add frontend/src/components/themes/fonts.js
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git commit -m 'test-add'
+[test c194b33] test-add
+ 1 file changed, 44 insertions(+)
+ create mode 100644 frontend/src/components/themes/fonts.js
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git push
+fatal: The current branch test has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin test
+
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git push --set-upstream origin test
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 774 bytes | 774.00 KiB/s, done.
+Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'test' on GitHub by visiting:
+remote:      https://github.com/Ginny123/FitnessApp/pull/new/test
+remote:
+To github.com:Ginny123/FitnessApp.git
+ * [new branch]      test -> test
+Branch 'test' set up to track remote branch 'test' from 'origin'.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 629 bytes | 629.00 KiB/s, done.
+From github.com:Ginny123/FitnessApp
+   feaa500..d335da9  main       -> origin/main
+Updating feaa500..d335da9
+Fast-forward
+ frontend/src/components/themes/fonts.js | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+ create mode 100644 frontend/src/components/themes/fonts.js
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout dashboard
+Switched to branch 'dashboard'
+Your branch is up to date with 'origin/dashboard'.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git rebase main
+CONFLICT (add/add): Merge conflict in frontend/src/components/themes/fonts.js
+Auto-merging frontend/src/components/themes/fonts.js
+error: could not apply b9c158c... basic styles
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply b9c158c... basic styles
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+interactive rebase in progress; onto d335da9
+Last commands done (2 commands done):
+   pick 416fdc7 basic styles
+   pick b9c158c basic styles
+Next commands to do (3 remaining commands):
+   pick 1483460 init Dashboard
+   pick b8d56e6 line-height change
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'dashboard' on 'd335da9'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   frontend/src/components/common/Button.js
+        new file:   frontend/src/components/common/GlobalStyles.js
+        new file:   frontend/src/components/common/index.js
+        new file:   frontend/src/components/themes/color.js
+        new file:   frontend/src/components/themes/index.js
+        new file:   frontend/src/components/themes/spaces.js
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both added:      frontend/src/components/themes/fonts.js
+
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git add .
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+interactive rebase in progress; onto d335da9
+Last commands done (2 commands done):
+   pick 416fdc7 basic styles
+   pick b9c158c basic styles
+Next commands to do (3 remaining commands):
+   pick 1483460 init Dashboard
+   pick b8d56e6 line-height change
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'dashboard' on 'd335da9'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   frontend/src/components/common/Button.js
+        new file:   frontend/src/components/common/GlobalStyles.js
+        new file:   frontend/src/components/common/index.js
+        new file:   frontend/src/components/themes/color.js
+        new file:   frontend/src/components/themes/index.js
+        new file:   frontend/src/components/themes/spaces.js
+
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git rebase --continue
+[detached HEAD f077f85] basic styles
+ 6 files changed, 65 insertions(+)
+ create mode 100644 frontend/src/components/common/Button.js
+ create mode 100644 frontend/src/components/common/GlobalStyles.js
+ create mode 100644 frontend/src/components/common/index.js
+ create mode 100644 frontend/src/components/themes/color.js
+ create mode 100644 frontend/src/components/themes/index.js
+ create mode 100644 frontend/src/components/themes/spaces.js
+Auto-merging frontend/src/components/themes/fonts.js
+CONFLICT (content): Merge conflict in frontend/src/components/themes/fonts.js
+Removing frontend/src/Dashboard.js
+error: could not apply 1483460... init Dashboard
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 1483460... init Dashboard
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+interactive rebase in progress; onto d335da9
+Last commands done (3 commands done):
+   pick b9c158c basic styles
+   pick 1483460 init Dashboard
+  (see more in file .git/rebase-merge/done)
+Next commands to do (2 remaining commands):
+   pick b8d56e6 line-height change
+   pick c9d11bc change dashboard Prop
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'dashboard' on 'd335da9'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   frontend/src/App.css
+        modified:   frontend/src/App.js
+        deleted:    frontend/src/Dashboard.js
+        new file:   frontend/src/components/common/DayTime.js
+        new file:   frontend/src/components/common/GetName.js
+        modified:   frontend/src/components/common/GlobalStyles.js
+        new file:   frontend/src/components/common/Welcome-Image.js
+        new file:   frontend/src/components/common/convert.js
+        modified:   frontend/src/components/common/index.js
+        new file:   frontend/src/components/screens/Dashboard.js
+        new file:   frontend/src/components/screens/Home.js
+        new file:   frontend/src/components/screens/index.js
+        modified:   frontend/src/components/themes/spaces.js
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both modified:   frontend/src/components/themes/fonts.js
+
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git add .
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git rebase --continue
+[detached HEAD 98d3395] init Dashboard
+ 13 files changed, 158 insertions(+), 67 deletions(-)
+ rewrite frontend/src/App.css (94%)
+ rewrite frontend/src/App.js (85%)
+ delete mode 100644 frontend/src/Dashboard.js
+ create mode 100644 frontend/src/components/common/DayTime.js
+ create mode 100644 frontend/src/components/common/GetName.js
+ create mode 100644 frontend/src/components/common/Welcome-Image.js
+ create mode 100644 frontend/src/components/common/convert.js
+ create mode 100644 frontend/src/components/screens/Dashboard.js
+ create mode 100644 frontend/src/components/screens/Home.js
+ create mode 100644 frontend/src/components/screens/index.js
+Auto-merging frontend/src/components/themes/fonts.js
+CONFLICT (content): Merge conflict in frontend/src/components/themes/fonts.js
+error: could not apply b8d56e6... line-height change
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply b8d56e6... line-height change
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+interactive rebase in progress; onto d335da9
+Last commands done (4 commands done):
+   pick 1483460 init Dashboard
+   pick b8d56e6 line-height change
+  (see more in file .git/rebase-merge/done)
+Next command to do (1 remaining command):
+   pick c9d11bc change dashboard Prop
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'dashboard' on 'd335da9'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both modified:   frontend/src/components/themes/fonts.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git add .
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git rebase --continue
+Successfully rebased and updated refs/heads/dashboard.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git status
+On branch dashboard
+Your branch and 'origin/dashboard' have diverged,
+and have 6 and 5 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git push --force-with-lease
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+Enumerating objects: 62, done.
+Counting objects: 100% (62/62), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (53/53), 19.90 KiB | 1.99 MiB/s, done.
+Total 53 (delta 18), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (18/18), completed with 4 local objects.
+To github.com:Ginny123/FitnessApp.git
+ + c9d11bc...dd6fc42 dashboard -> dashboard (forced update)
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 630 bytes | 630.00 KiB/s, done.
+From github.com:Ginny123/FitnessApp
+   d335da9..6ceca18  main       -> origin/main
+Already up to date.
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git checkout main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 5 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$ git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+Enter passphrase for key '/home/brigitte/.ssh/id_ed25519':
+Updating d335da9..6ceca18
+Fast-forward
+ frontend/public/index.html                      |   4 +++
+ frontend/src/App.css                            |  35 ------------------
+ frontend/src/App.js                             |  40 ++++++++++++---------
+ frontend/src/Dashboard.js                       |   0
+ frontend/src/components/common/Button.js        |  15 ++++++++
+ frontend/src/components/common/DayTime.js       |  24 +++++++++++++
+ frontend/src/components/common/GetName.js       |  12 +++++++
+ frontend/src/components/common/GlobalStyles.js  |  20 +++++++++++
+ frontend/src/components/common/Welcome-Image.js |  16 +++++++++
+ frontend/src/components/common/convert.js       |   7 ++++
+ frontend/src/components/common/index.js         |   5 +++
+ frontend/src/components/screens/Dashboard.js    |  44 +++++++++++++++++++++++
+ frontend/src/components/screens/Home.js         |   9 +++++
+ frontend/src/components/screens/index.js        |   1 +
+ frontend/src/components/themes/color.js         |  24 +++++++++++++
+ frontend/src/components/themes/index.js         |   2 ++
+ frontend/src/components/themes/spaces.js        |  10 ++++++
+ frontend/src/images/Barbel.svg                  |   7 ++++
+ frontend/src/images/Home.svg                    |   3 ++
+ frontend/src/images/Profile.svg                 |   5 +++
+ frontend/src/images/Register.svg                | 116 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ frontend/src/images/Welcome.svg                 | 124 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 22 files changed, 471 insertions(+), 52 deletions(-)
+ delete mode 100644 frontend/src/Dashboard.js
+ create mode 100644 frontend/src/components/common/Button.js
+ create mode 100644 frontend/src/components/common/DayTime.js
+ create mode 100644 frontend/src/components/common/GetName.js
+ create mode 100644 frontend/src/components/common/GlobalStyles.js
+ create mode 100644 frontend/src/components/common/Welcome-Image.js
+ create mode 100644 frontend/src/components/common/convert.js
+ create mode 100644 frontend/src/components/common/index.js
+ create mode 100644 frontend/src/components/screens/Dashboard.js
+ create mode 100644 frontend/src/components/screens/Home.js
+ create mode 100644 frontend/src/components/screens/index.js
+ create mode 100644 frontend/src/components/themes/color.js
+ create mode 100644 frontend/src/components/themes/index.js
+ create mode 100644 frontend/src/components/themes/spaces.js
+ create mode 100755 frontend/src/images/Barbel.svg
+ create mode 100755 frontend/src/images/Home.svg
+ create mode 100755 frontend/src/images/Profile.svg
+ create mode 100755 frontend/src/images/Register.svg
+ create mode 100755 frontend/src/images/Welcome.svg
+brigitte@DESKTOP-AMD1J95:~/FitnessApp$
