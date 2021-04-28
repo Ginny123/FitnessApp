@@ -1,4 +1,3 @@
-import React from 'react';
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -9,8 +8,8 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
-        background-color: #ffffff;
-        width: 414px;
+        font-size: 62.5%;
+        background-color: #ffffff;        
         color: #1D2A73;
     }`
 
