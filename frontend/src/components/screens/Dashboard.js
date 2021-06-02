@@ -4,6 +4,9 @@ import {WelcomeImg} from '../common/Welcome-Image';
 import styled from 'styled-components';
 import {Daytime} from '../common/DayTime';
 import {Getname} from '../common/GetName';
+import {NavBar} from '../common/Nav';
+import { useQuery, gql } from '@apollo/client';
+
 
 const Wrapper = styled.div`
     margin: 10% 5% 22%;     
@@ -21,7 +24,19 @@ const InnerWrapper = styled.div`
     align-items: flex-end;
 `;
 
+// const GETWORKOUT=gql`
+//     query {
+//         allWorkouts {
+//             title
+//         }
+//     }
+// `;
+
 export default function Dashboard() {
+    // const { loading, error, data} = useQuery(GETWORKOUT);
+    // console.log(data);
+    // if (loading) return <p>Loading...</p>;
+    // if (error) return <p>Error: </p>
     return (
         <Wrapper>
             <Welcome>
@@ -37,6 +52,7 @@ export default function Dashboard() {
             <Text>Titel des Workouts</Text>
             <Text>Titel des Programms</Text>
             <Text small>xxx kcal - 26Min. - Beweglichkeit</Text>
+            <NavBar />
         </Wrapper>
     )
 }

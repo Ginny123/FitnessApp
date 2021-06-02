@@ -1,9 +1,8 @@
 import React from 'react';
+import { Title1 } from '../themes/fonts';
 
-export default function Home() {
-    return (
-        <div>
-            Home
-        </div>
-    )
+const Home = () => {
+    return <Title1>Home</Title1>
 }
+
+export {Home};
