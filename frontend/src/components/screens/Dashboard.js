@@ -24,19 +24,40 @@ const InnerWrapper = styled.div`
     align-items: flex-end;
 `;
 
-// const GETWORKOUT=gql`
-//     query {
-//         allWorkouts {
-//             title
-//         }
-//     }
-// `;
+const GETWORKOUT=gql`
+query {
+    allProgram(limit: 1) {
+      _id 
+        title
+      workouts {
+        _key
+        day
+        Workout {
+          _id
+          calories
+          duration
+          categories
+        }
+      }
+    }
+  }
+`;
 
 export default function Dashboard() {
-    // const { loading, error, data} = useQuery(GETWORKOUT);
-    // console.log(data);
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>Error: </p>
+    const { loading, error, data} = useQuery(GETWORKOUT);
+    console.log(data);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: </p>
+
+    const program = data.allProgram[0];
+    const {
+        calories,
+        categories,
+        duration
+    } = program.workouts[0].Workout;
+
+    const categoryString = categories.join(", ");
+
     return (
         <Wrapper>
             <Welcome>
@@ -50,8 +71,8 @@ export default function Dashboard() {
             </InnerWrapper>
             <WelcomeImg />
             <Text>Titel des Workouts</Text>
-            <Text>Titel des Programms</Text>
-            <Text small>xxx kcal - 26Min. - Beweglichkeit</Text>
+            <Text>{program.title}</Text>
+            <Text small>{`${calories}kcal - ${duration}Min. - ${categoryString}`}</Text>
             <NavBar />
         </Wrapper>
     )
