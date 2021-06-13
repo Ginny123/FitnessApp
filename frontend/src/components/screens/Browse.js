@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Title2, Text } from '../themes/fonts';
-import {Tile} from '../common/Tile';
+import Tile from '../common/Tile';
 import { NavBar } from '../common';
+import { useQuery, gql } from '@apollo/client';
 
 
 const Wrapper = styled.div`
@@ -20,19 +21,41 @@ const BrowseHeader = styled.div`
 
 `;
 
-function Browse() {
+const GETPROGRAM=gql`
+query {
+    allProgram {
+      _id 
+        title
+      slug {
+          current
+      }
+    }
+  }
+`;
+
+function Browse() {   
+    const { loading, error, data} = useQuery(GETPROGRAM);    
+    console.log(data);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: </p>
+
+    const programs = data.allProgram;
+
     return (
         <Wrapper>
             <BrowseHeader>
                 <Title2>Browse</Title2>
                 <Text small>Filter</Text>
             </BrowseHeader>
-            <Tile title='Core-Challenge' />
-            <Tile title='Full Body Workout'/>
-            <Tile title='Cardio-Training' />
+            <ul>
+                {programs.map(program => (
+                    <Tile key={program._id} program={program}/>
+                ))}
+            </ul>
+            
             <NavBar />
         </Wrapper>
     )
 };
 
-export {Browse};
+export default Browse;

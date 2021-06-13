@@ -4,6 +4,7 @@ import Icon4 from "../../images/Heart.svg";
 import { Link } from "react-router-dom";
 import {Text, Title2} from '../themes/fonts';
 
+
 const Container = styled.div`
   padding: 2rem;
   width: 37.5rem;
@@ -35,7 +36,8 @@ const TileHeader = styled.div`
 
 
 
-const Tile = (props) => {
+const Tile = ({program}) => {
+
   return (
     <Container>
       <TileHeader>
@@ -43,13 +45,13 @@ const Tile = (props) => {
         <Text small>Neu</Text>
       </TileHeader>
 
-      <TileLink>
-        <Link to="/program">
-          <Title2>{props.title}</Title2>
-        </Link>
+      <TileLink to={`/program/${program.slug.current}`}>
+          <Title2>{program.title}</Title2>        
       </TileLink>
     </Container>
   );
 };
 
-export {Tile};
+
+
+export default Tile;

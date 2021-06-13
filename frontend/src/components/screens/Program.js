@@ -8,6 +8,7 @@ import Icon7 from '../../images/Kalender.svg';
 import Icon8 from '../../images/Zurueck.svg';
 import {Link} from 'react-router-dom';
 import PieChart from '../common/PieChart';
+import { useQuery, gql } from '@apollo/client';
 
 const Wrapper = styled.div`
     
@@ -97,7 +98,37 @@ const Chart = styled.div`
     align-items: center;
 `;
 
-const Program = (props) => {
+const GETPROGRAM = gql`
+query($slug: String!) {
+    allProgram(where: {slug: {current: {eq: $slug}}}) {
+      _id 
+        title
+      duration
+      difficulty
+      description
+      workouts {
+        _key
+        day
+        Workout {
+          _id
+          title
+          calories
+          duration
+          categories
+        }
+      }
+    }
+  }
+`;
+
+const Program = ({match: {params}}) => {
+    const { loading, error, data} = useQuery(GETPROGRAM, {variables: {slug: params.slug}});    
+    console.log(data);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: </p>
+
+    const program = data.allProgram[0];
+    
     return (
         <Wrapper>            
             <ProgramHeader>
@@ -107,7 +138,7 @@ const Program = (props) => {
                     </BackLink>                    
                 </Header>
                 {/* <Title1>{props.title}</Title1> */}
-                <Title1>Core-Challenge</Title1>
+                <Title1>{program.title}</Title1>
                 <StickyButton>jetzt starten</StickyButton>
                 <List>
                     <ListItem>
@@ -124,14 +155,7 @@ const Program = (props) => {
                     </ListItem>
                 </List>
             </ProgramHeader>
-            <Description>
-                <Text>Programm-Beschreibung vom Backend</Text>
-                <Text>Programm-Beschreibung vom Backend</Text>
-                <Text>Programm-Beschreibung vom Backend</Text>
-                <Text>Programm-Beschreibung vom Backend</Text>
-                <Text>Programm-Beschreibung vom Backend</Text>
-                <Text>Programm-Beschreibung vom Backend</Text>
-            </Description>
+            <Description>{program.description}</Description>
             <Statistic>
                 <Title3>So ist das Programm aufgeteilt:</Title3>
                 <Chart>                

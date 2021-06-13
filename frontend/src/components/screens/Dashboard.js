@@ -24,7 +24,7 @@ const InnerWrapper = styled.div`
     align-items: flex-end;
 `;
 
-const GETWORKOUT=gql`
+const GETTRAINING=gql`
 query {
     allProgram(limit: 1) {
       _id 
@@ -34,6 +34,7 @@ query {
         day
         Workout {
           _id
+          title
           calories
           duration
           categories
@@ -43,8 +44,16 @@ query {
   }
 `;
 
+// const GETWORKOUT=gql`
+// query($id: ID!) {
+//   Workout(id: $id) {
+//     title
+//   }
+// }
+// `;
+
 export default function Dashboard() {
-    const { loading, error, data} = useQuery(GETWORKOUT);
+    const { loading, error, data} = useQuery(GETTRAINING);    
     console.log(data);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: </p>
@@ -57,6 +66,7 @@ export default function Dashboard() {
     } = program.workouts[0].Workout;
 
     const categoryString = categories.join(", ");
+    // const workout = data.Workout
 
     return (
         <Wrapper>
@@ -70,7 +80,7 @@ export default function Dashboard() {
                 <Text small>Trainingsplan</Text>
             </InnerWrapper>
             <WelcomeImg />
-            <Text>Titel des Workouts</Text>
+            <Text>{program.workouts[0].Workout.title}</Text>
             <Text>{program.title}</Text>
             <Text small>{`${calories}kcal - ${duration}Min. - ${categoryString}`}</Text>
             <NavBar />

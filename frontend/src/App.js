@@ -3,7 +3,7 @@ import './App.css';
 import {GlobalStyle} from './components/common';
 import {ThemeProvider} from 'styled-components';
 import {Dashboard} from './components/screens/Dashboard';
-import {Browse} from './components/screens/Browse';
+import Browse from './components/screens/Browse';
 import {Profile} from './components/screens/Profile';
 import {Program} from './components/screens/Program';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
@@ -30,7 +30,7 @@ function App() {
             <Route path="/browse" component={Browse} />
             <Route path="/profile" component={Profile} />            
           </Switch>      
-          <Route path="/program" component={Program} />      
+          <Route path="/program/:slug" component={Program} />      
           <Route path='/BackLink' component={Browse} />
         </ThemeProvider>
       </ApolloProvider>
